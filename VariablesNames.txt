@@ -1,0 +1,13 @@
+msgSignal - incomingMessageSignal // сигнал о поступившем сообщении
+branch - branchCode // код филиала
+procInfo - processInfo // информация о процессе
+idPrc - processId // идентификатор процесса
+count - processInstanceCount // количество инстансов процесса
+parentId - parentInstanceId // id родительского инстанса
+session - sessionNumber // номер сессии
+lockSession - lockSessionFlag // флаг блокировки сессии
+boolFlag - isActiveFlag // признак активности флага
+value - processVariableValue // значение переменной процесса
+procVars - processVariablesMap // словарь переменных процесса
+groupnum - groupNumber // номер группы
+
