@@ -1,0 +1,29 @@
+7.1 
+internalSignalExists    -  isInternalSignalExists
+activeSessionExists     -  isActiveSession
+manual                  -  isManual
+headBranch              -  isHead
+sessionLock             -  isLockSession
+
+==================================
+7.2
+hasInstance             -  found
+finishedTask            -  done
+variablesExist          -  found
+
+==================================
+7.3
+Индексы циклов всегда именую только одной буквой
+
+7.4
+Вероятно для переменной isLockSession можно использовать антоним isUnlockSession вместо отрицания.
+internalSignal и externalSignal
+==================================
+
+7.5
+ - в одном из циклов используется переменная tempString для хранения строки нулевой длины. такую переменную лучше назвать emptyString.
+ - while(count<20) {
+    ...
+    count++;
+ } 
+    с учетом контекста переменную count следует переименовать в signalCount.
