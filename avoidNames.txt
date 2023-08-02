@@ -1,0 +1,12 @@
+group1 		- operatorsGroup
+group2 		- usersGroup
+result 		- filteredInstanceList
+result 		- branchCode
+value 		- sessionNum
+value  		- sessionNum
+max    		- maxDurationInSeconds
+min    		- minDurationInSeconds
+var    		- operationDate
+var	   		- event
+sum	   		- sumOfBranchRequests
+eventList 	- events
