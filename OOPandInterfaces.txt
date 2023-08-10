@@ -1,0 +1,50 @@
+3.1
+public class SessionTimer {
+private int minutes;
+
+    private SessionTimer(int minutes) {
+        this.minutes = minutes;
+    }
+
+    public static SessionTimer(int minutes) {
+        return new SessionTimer(minutes);
+    }
+
+}
+
+public class Person {
+    private String name;
+    private int age;
+
+    private Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public static Person createPerson(String name, int age) {
+        return new Person(name, age);
+    }
+}
+
+public class Event {
+
+    private String name;
+    private String description;
+
+    private Event(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    public static Event createEvent(String name, String description) {
+        return new Event(name, description);
+    }
+}
+
+
+====================================
+
+3.2
+1. абстрактный класс для валидации правил RuleEngine
+2. абстрактный класс для отправки уведомлений AbstractMessageSender
+3. интерфейс для работы с процессами ProcessInstanceService
