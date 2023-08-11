@@ -1,0 +1,40 @@
+1. Введена константа для хранения кода ошибки
+    public static final String CODE_ERROR_ADAPTER = "2";
+
+2. Введена константа для хранения кода успеха
+    public static final String CODE_ADAPTER_SUCCESS = "0";
+
+3. Введена константа для хранения кода ожидания
+    public static final String CODE_ADAPTER_WAITING = "1";
+
+4. Введена константа для хранения количества филиалов
+    public static final int FILIAL_COUNT = 9;
+
+5. Введена константа для хранения типа активности
+    private static final String CALL_ACTIVITY = "callActivity";
+
+6. Введена константа для хранения наименования сервиса
+    public static final String INVESTMENT_SERVICE = "InvestmentService";
+
+7. Введена константа для параметризации наименования позиции
+    public static final String POSITION = "Position";
+
+8. Введена константа для параметризации наименования параметра подразделения
+    public static final String POSITION = "Subdivision";
+
+9. Введена константа для параметризации наименования параметра инструмента
+    public static final String POSITION = "Instrument";
+
+10. Введена константа для параметризации наименования параметра валюты
+    public static final String POSITION = "Currency";
+
+11. Введена константа для параметризации заголовка сообщения
+    public static final String MESSAGE_TITLE_START = "Запрос на оптимизацию configfile";
+
+12. Введена константа для параметризации сообщения об успешном выполнении операции
+    public static final String MESSAGE_TEMPLATE_SUCCESS = "'Оптисмизация configfile успешно завершена'";
+
+
+
+
+
