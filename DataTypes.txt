@@ -1,0 +1,183 @@
+1. 
+int age = 25;
+String ageStr = "25";
+if (age == Integer.parseInt(ageStr)) {
+    // ...
+}
+
+// Измененный код
+int age = 25;
+String ageStr = "25";
+int parsedAge = Integer.parseInt(ageStr);
+if (age == parsedAge) {
+    // ...
+}
+
+2.
+// Исходный код
+int number = 10;
+String numberStr = "20";
+int sum = number + Integer.parseInt(numberStr);
+if (sum == 30) {
+    // ...
+}
+
+// Измененный код
+int number = 10;
+String numberStr = "20";
+int parsedNumber = Integer.parseInt(numberStr);
+int sum = number + parsedNumber;
+if (sum == 30) {
+    // ...
+}
+
+В этих примерах избегаю сравнения значения типа int с результатом парсинга строки в целое число. 
+Вместо этого сохраняю результаты парсинга в отдельную переменную типа int и затем сравниваю значения.
+============================================================================================
+
+3.
+// Исходный код
+int a = Integer.MAX_VALUE;
+int b = 2;
+int sum = a + b;
+System.out.println(sum);
+
+// Измененный код
+int a = Integer.MAX_VALUE;
+int b = 2;
+if (b > 0 && a > Integer.MAX_VALUE - b) {
+    // Обработка переполнения
+    System.out.println("Переполнение!");
+} else {
+    int sum = a + b;
+    System.out.println(sum);
+}
+Проверка на возможное переполнение целых чисел.
+============================================================================================
+
+4. 
+// Исходный код
+int a = 1000000;
+int b = 1000000;
+int c = 1000000;
+int result = (a * b) + c;
+System.out.println(result);
+
+// Измененный код
+int a = 1000000;
+int b = 1000000;
+int c = 1000000;
+long intermediateResult = (long) a * b;
+if (intermediateResult > Integer.MAX_VALUE) {
+    // Обработка переполнения
+    System.out.println("Промежуточный результат переполнился!");
+} else {
+    int result = (int) intermediateResult + c;
+    System.out.println(result);
+}
+
+
+В этом примере мы выполняем умножение целых чисел a и b и затем складываем результат с числом c. 
+Однако, чтобы предотвратить возможное переполнение при умножении, мы сохраняем промежуточный результат в переменную типа long, а не int. 
+Затем мы проверяем, превышает ли промежуточный результат максимальное значение типа int. 
+Если да, то это означает, что произошло переполнение, и мы можем предусмотреть обработку этой ситуации. 
+В противном случае, если переполнение не возникает, мы преобразуем промежуточный результат обратно в int, складываем с числом c и выводим результат.
+
+============================================================================================
+5.
+// Исходный код
+int score = 95;
+if (score > 100) {
+   //
+}
+
+// Измененный код
+int score = 95;
+final int MAX_SCORE = 100;
+if (score > MAX_SCORE) {
+    //
+}
+
+
+В этом примере определяю константу MAX_SCORE, которая обозначает максимально допустимый балл.
+
+6.
+// Исходный код
+String language = "English";
+if (language.equals("English")) {
+   //
+}
+
+// Измененный код
+String language = "English";
+final String MESSAGE_ENGLISH = "Hello!";
+if (language.equals("English")) {
+    //
+}
+В этом примере определяю константу MESSAGE_ENGLISH, которая обозначает сообщение на английском языке.
+
+7.
+в коде есть переменная int numberOfMonths = 12;
+заменена на константу final int MONTHS_IN_YEAR = 12;
+============================================================================================
+
+8. Пример использования логической переменной для упрощения сложного условия
+
+// Исходный код
+if (isUserAuthenticated() && (isAdmin() || isModerator())) {
+    // Выполнение кода, если пользователь аутентифицирован и является администратором или модератором
+}
+
+// Измененный код
+boolean isAuthorizedUser = isUserAuthenticated() && (isAdmin() || isModerator());
+if (isAuthorizedUser) {
+    // Выполнение кода, если пользователь аутентифицирован и является администратором или модератором
+}
+
+9. Пример использования логической переменной для упрощения сложного условия
+// Исходный код
+if (age >= 18 && age <= 65) {
+    // Выполнение кода, если возраст находится в диапазоне 18-65
+}
+
+// Измененный код
+boolean isAgeInRange = age >= 18 && age <= 65;
+if (isAgeInRange) {
+    // Выполнение кода, если возраст находится в диапазоне 18-65
+}
+
+10.
+// Исходный код
+if (age >= 18 && (hasLicense || hasPermit) && !isSuspended && !isExpired) {
+    // Выполнение кода, если все условия выполняются
+}
+
+// Измененный код
+boolean isAllowedToDrive = age >= 18 && (hasLicense || hasPermit) && !isSuspended && !isExpired;
+if (isAllowedToDrive) {
+    // Выполнение кода, если разрешено водить
+}
+
+11.
+// Исходный код
+if (!(isWeekend || isHoliday)) {
+    // Выполнение кода, если не выходной и не праздник
+}
+
+// Измененный код
+boolean isRegularDay = !(isWeekend || isHoliday);
+if (isRegularDay) {
+    // Выполнение кода, если не выходной и не праздник
+}
+
+12.
+// Исходный код
+if (object != null && object.getProperty() != null) {
+    // Выполнение кода, если объект и его свойство не равны null
+}
+
+// Измененный код
+boolean hasNonNullProperty = object != null && object.getProperty() != null;
+if (hasNonNullProperty) {
+    // Выполнение кода, если объект и его свойство не равны null
+}
