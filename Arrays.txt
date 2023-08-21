@@ -1,0 +1,59 @@
+1. Замена массива на список (List):
+// Использование массива
+int[] numbers = {1, 2, 3, 4, 5};
+int firstNumber = numbers[0];
+
+// Замена на список
+List<Integer> numberList = Arrays.asList(1, 2, 3, 4, 5);
+int firstNumber = numberList.get(0);
+
+Вместо использования массива и прямой индексации, можно использовать список (List) и метод get() для получения элемента по индексу.
+
+2. Замена массива на набор (Set):
+// Использование массива
+String[] names = {"Alice", "Bob", "Charlie", "Alice"};
+boolean containsAlice = Arrays.asList(names).contains("Alice");
+
+// Замена на набор
+Set<String> nameSet = new HashSet<>(Arrays.asList("Alice", "Bob", "Charlie", "Alice"));
+boolean containsAlice = nameSet.contains("Alice");
+
+Вместо использования массива и метода contains() для проверки наличия элемента, можно использовать набор (Set) и метод contains() для более эффективной проверки.
+
+3. Замена массива на стек (Stack):
+// Использование массива
+String[] history = new String[10];
+int top = 0;
+String lastVisitedPage = history[top];
+
+// Замена на стек
+Stack<String> pageStack = new Stack<>();
+String lastVisitedPage = pageStack.peek();
+
+Вместо использования массива и переменной top для отслеживания верхнего элемента, можно использовать стек (Stack) и метод peek() для получения "верхнего" элемента.
+
+4. Замена массива на очередь (Deque):
+// Использование массива
+String[] messages = new String[10];
+int top = 0;
+String nextMessage = messages[top];
+
+// Замена на очередь
+Deque<String> messageQueue = new LinkedList<>();
+String nextMessage = messageQueue.peek();
+
+Вместо использования массива и переменной top для получения следующего сообщения, можно использовать очередь (Queue) и метод peek() для получения элемента.
+
+5. Использование методов массива вместо прямой индексации:
+// Прямая индексация массива
+int[] numbers = {1, 2, 3, 4, 5};
+int sum = 0;
+for (int i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+}
+
+// Использование методов массива
+int[] numbers = {1, 2, 3, 4, 5};
+int sum = Arrays.stream(numbers).sum();
+
+Вместо использования цикла и прямой индексации массива, можно использовать stream.
