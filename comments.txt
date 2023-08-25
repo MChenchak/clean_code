@@ -1,0 +1,54 @@
+3.1
+
+1)
+        // Создать инстанс процесса по Id
+        public ProcessInstantiationBuilder createProcessInstanceById(String processDefinitionId) {
+            return super.createProcessInstanceById(processDefinitionId);
+        }
+
+2)
+        // Установить переменную для инстанса процесса
+        public void setVariable(String executionId, String variableName, Object value) {
+        super.setVariable(executionId, variableName, value);
+    }
+
+3)
+        // Инициализировать запрос для поиска инстансов
+        public HistoricProcessInstanceQuery initialize(Map<String, Object> params, Map<String, Object> variableValues) {
+        HistoricProcessInstanceQueryImpl query = objectMapper
+                .convertValue(params, HistoricProcessInstanceQueryImpl.class);
+
+        variableValues.entrySet().stream()
+                .forEach(entry -> query.variableValueEquals(entry.getKey(), entry.getValue()));
+
+        return query;
+    }
+
+4)
+        // Повторная валидация сессии
+        public static void revalidateSession(HttpServletRequest request, Authentication authentication) {
+        HttpSession session = request.getSession();
+        Authentications authentications = getFromSession(session);
+        session.invalidate();
+        session = request.getSession(true);
+        if (authentication != null) {
+            authentications.addAuthentication(authentication);
+            session.setAttribute(SESSION_KEY, authentications);
+        }
+
+5)
+        // Сохранить данные аутентификации
+        public void addAuthentication(Authentication authentication) {
+        this.authentications.put(authentication.getProcessEngineName(), authentication);
+        }
+
+6)
+        // Поверить наличие аутентификации для указанного ProcessEngine
+        public boolean hasAuthenticationForProcessEngine(String engineName) {
+        return this.getAuthenticationForProcessEngine(engineName) != null;
+        }
+
+7)      // Получить ProcessEngine по имени
+        public static ProcessEngine getProcessEngine(String processEngineName) {
+        return getRuntimeDelegate().getProcessEngine(processEngineName);
+         }
