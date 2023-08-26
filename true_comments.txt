@@ -1,0 +1,101 @@
+1. Комментарии TODO
+    if (ParameterEnum.isDateTag(template)) {
+            if (template.toLowerCase().contains(ParameterEnum.PREV_DATE.getTagName())) {
+                localDateTime = localDateTime.minusDays(1L);
+            } else if (template.toLowerCase().contains(ParameterEnum.NEXT_DATE.getTagName())) {
+                localDateTime = localDateTime.plusDays(1L);
+            } else if (template.toLowerCase().contains(ParameterEnum.TODAY.getTagName())) {
+                //TODO реализовать логику для тега #today#
+            }
+            template = ParameterEnum.deleteTagFromValue(template);
+        }
+
+2. Комментарии TODO
+    //TODO: используется адрес локального хоста. вынести адрес в application.yaml
+    @FeignClient(value = "cftAdapter", url = "localhost:9090") 
+    public interface CFTAdapterFeignClient {
+    }
+
+3. Комментарии TODO
+    //TODO пока нет необходимости в этом классе. Будет использоваться после реализации процесса Sessiom
+    public class SessionTimer implements Serializable {
+    
+    private final static Long serialVersionUID = 1L;
+
+    private Long sessionNumber;
+    private String timerValue;
+}
+
+4. Комментарии TODO
+        //TODO: вместо лога должно создаваться исключение
+        if (!variablesExist) {
+        log.info("Не заданы параметры для поиска процесса, ожидающего сообщение."); 
+        return;
+        }
+
+5. Усиление
+
+    // Очень важно использовать именно эту версию сервиса в конфигурации движка, т.к она дает возможность аудировать
+    // вызываемые методы
+    public class AuditableFormService extends FormServiceImpl {
+        ...
+    }
+
+6. Усиление
+    // Очень важно использовать именно эту версию сервиса в конфигурации движка, т.к она дает возможность аудировать
+    // вызываемые методы
+    public class AuditableRuntimeServiceImpl extends RuntimeServiceImpl {
+        ...
+    }
+
+7. Предупреждение
+
+    // Использование конфигурации отключит работу стандартного обработчика ошибки
+    // поэтому нужно обязательно предоставить свою реализацию обработчика
+    public class IncidentHandlerConfiguration {
+
+    }
+
+8. Комментарий заменен более информативным названием метода
+
+    // Подготовка тестового контекста
+    public void PrepareContext() {
+
+    }
+
+    заменено на 
+
+    public void PrepareTestContext() {
+
+    }
+
+9. Комментарий заменен более информативным названием метода
+    
+    // Установка бищнес кдюча
+    public void businessKey(String businessKey) {
+        ...
+    }
+
+    заменено на
+
+    public void setBusinessKey(String businessKey) {
+        ...
+    }
+
+10. Прояснение
+    
+    // Запуск нового инстанса процесса
+    public ProcessInstance execute() {
+    ...
+    }
+
+11. Прояснение
+
+    // Время, когда инцидент возник/был создан
+    Date getIncidentTimestamp();
+
+12. Прояснение
+
+    // Возвращает идентификатор activity, при выполнении которого произошло последнее исключение.
+    String getFailedActivityId();
+
